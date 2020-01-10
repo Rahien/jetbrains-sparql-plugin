@@ -1,0 +1,27 @@
+<idea-plugin>
+    <id>be.raccoons.jetbrains-sparql</id>
+    <name>SPARQL executor</name>
+    <vendor email="info@raccoons.be" url="https://raccoons.be">Raccoons</vendor>
+
+    <description>Plugin that allows you to run sparql queries on a virtuoso endpoint.</description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <iconProvider implementation="SparqlFileIconProvider"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="ExecuteSparql" class="ExecuteSparql" text="Run Sparql"
+                icon="SparqlIcons.RUN_ACTION"
+                description="Runs Sparql on given endpoint">
+            <add-to-group group-id="RunMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="ProjectViewPopupMenu" relative-to-action="CutCopyPasteGroup" anchor="before"/>
+        </action>
+    </actions>
+</idea-plugin>
